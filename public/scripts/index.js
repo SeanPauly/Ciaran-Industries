@@ -1,28 +1,19 @@
+$(function() {
+    $('a.page-scroll').bind('click', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
 
-'use strict'
-
-const menuToggle = document.querySelector('.menu-toggle');
-const bxMenu = document.querySelector('.bx-menu');
-const bxX = document.querySelector('.bx-x');
-
-const navBar = document.querySelector('.navbar');
-
-// --- open menu ---
-
-bxMenu.addEventListener('click', (e)=> {
-    if(e.target.classList.contains('bx-menu')){
-        navBar.classList.add('show-navbar');
-        bxMenu.classList.add('hide-bx');
-        bxX.classList.add('show-bx');
-    }
+// Highlight the top nav as scrolling occurs
+$('body').scrollspy({
+    target: '.navbar-fixed-top'
 })
 
-// --- close menu ---
-
-bxX.addEventListener('click', (e)=> {
-    if(e.target.classList.contains('bx-x')){
-        navBar.classList.remove('show-navbar');
-        bxMenu.classList.remove('hide-bx');
-        bxX.classList.remove('show-bx');
-    }
-})
+// Closes the Responsive Menu on Menu Item Click
+$('.navbar-collapse ul li a').click(function() {
+    $('.navbar-toggle:visible').click();
+});
