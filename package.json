@@ -4,7 +4,9 @@
   "description": "The website for Ciaran Industries, host all apps, apis, and other projects.",
   "main": "index.js",
   "scripts": {
-    "test": "test"
+    "test": "test",
+    "build": "build",
+    "run": "build"
   },
   "author": "Sean M. Pauly",
   "license": "ISC",
