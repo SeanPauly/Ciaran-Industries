@@ -4,6 +4,7 @@
   "description": "The website for Ciaran Industries, host all apps, apis, and other projects.",
   "main": "index.js",
   "scripts": {
+    "build": "webpack --config webpack.config.js",
     "serve": "firebase serve --only functions",
     "shell": "firebase functions:shell",
     "start": "npm run shell",
