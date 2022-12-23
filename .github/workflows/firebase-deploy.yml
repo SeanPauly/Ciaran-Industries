@@ -4,7 +4,7 @@ name: Deploy Cloud Functions
     branches:
       - main
     paths:
-      - 'Ciaran Industries/functions/**'
+      - 'Ciaran-Industries/functions/**'
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
@@ -16,12 +16,12 @@ jobs:
       - uses: actions/cache@v2
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/Ciaran Industries/functions/package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/Ciaran-Industries/functions/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
       - name: Build Cloud Functions
         run: npm ci
-        working-directory: Ciaran Industries/functions
+        working-directory: Ciaran-Industries/functions
       - name: Create SA key
         run: echo '${{ secrets.FIREBASE_SERVICE_ACCOUNT }}' > $HOME/gcloud.json
       - name: Deploy Cloud Functions
