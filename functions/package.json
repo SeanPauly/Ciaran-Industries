@@ -3,18 +3,17 @@
   "description": "Cloud Functions for Firebase",
   "scripts": {
     "lint": "eslint .",
-    "serve": "firebase emulators:start --only functions",
+    "build": "",
+    "serve": "firebase serve --only functions",
     "shell": "firebase functions:shell",
     "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log",
-    "build": ""
+     "deploy": "firebase deploy --only functions",
+     "logs": "firebase functions:log"
+  
   },
   "engines": {
     "node": "16"
   },
-  "author": "Sean M. Pauly",
-  "license": "ISC",
   "main": "index.js",
   "dependencies": {
     "firebase-functions": "^3.18.0",
