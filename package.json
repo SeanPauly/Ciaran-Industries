@@ -8,6 +8,7 @@
     "shell": "firebase functions:shell",
     "start": "npm run shell",
     "deploy": "firebase deploy --only functions",
+    "build": "npm build",
     "logs": "firebase functions:log"
   },
   "author": "Sean M. Pauly",
@@ -17,7 +18,8 @@
     "express": "^4.18.2",
     "firebase-admin": "^11.4.1",
     "firebase-functions": "^3.1.0",
-    "handlebars": "^4.7.7"
+    "handlebars": "^4.7.7",
+    "npm-build": "^0.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.17",
