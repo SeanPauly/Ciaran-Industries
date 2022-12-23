@@ -31,7 +31,7 @@ app.get('/innovation/',async (request,response) =>{
     response.render('innovation',{db_result});
 });
 
-app.get('/company/',async (request,response) =>{
+app.get('/thestory/',async (request,response) =>{
     var db_result = await getFirestore();
     response.render('thestory',{db_result});
 });
