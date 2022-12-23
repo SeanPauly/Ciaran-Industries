@@ -25,4 +25,43 @@ app.get('/',async (request,response) =>{
 var db_result = await getFirestore();
 response.render('index',{db_result});
 });
+
+app.get('/innovation/',async (request,response) =>{
+    var db_result = await getFirestore();
+    response.render('innovation',{db_result});
+});
+
+app.get('/company/',async (request,response) =>{
+    var db_result = await getFirestore();
+    response.render('thestory',{db_result});
+});
+
+
+app.get('/projects/',async (request,response) =>{
+    var db_result = await getFirestore();
+    response.render('projects',{db_result});
+});
+
+app.get('/services/',async (request,response) =>{
+    var db_result = await getFirestore();
+    response.render('services',{db_result});
+});
+
+app.get('/products/',async (request,response) =>{
+    var db_result = await getFirestore();
+    response.render('products',{db_result});
+});
+
+
+app.get('/careers/',async (request,response) =>{
+    var db_result = await getFirestore();
+    response.render('careers',{db_result});
+});
+
+app.get('/contact/',async (request,response) =>{
+    var db_result = await getFirestore();
+    response.render('contact',{db_result});
+});
+
+
 exports.app = functions.https.onRequest(app);
