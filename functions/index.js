@@ -9,11 +9,8 @@ app.engine('hbs',engines.handlebars);
 app.set('views','./views');
 app.set('view engine','hbs');
 
-var serviceAccount = require("./ciaranindustries-firebase-adminsdk-7dmsc-38bed26896.json");
-admin.initializeApp({
-credential: admin.credential.cert(serviceAccount),
-databaseURL: "https://ciaranindustries-default-rtdb.firebaseio.com"
-});
+admin.initializeApp(functions.config().firebase);
+
 
 async function getFirestore(){
 const firestore_con  = await admin.firestore();
