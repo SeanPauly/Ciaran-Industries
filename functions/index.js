@@ -23,7 +23,7 @@ return writeResult
 
 app.get('/',async (request,response) =>{
 var db_result = await getFirestore();
-response.render('index',{db_result});
+response.render('index');
 });
 
 app.get('/innovation/',async (request,response) =>{
@@ -62,6 +62,12 @@ app.get('/contact/',async (request,response) =>{
     var db_result = await getFirestore();
     response.render('contact',{db_result});
 });
-
-
+/*
+for (const file of files) {
+  const pth = '/' + file  
+  app.get(pth, function(req, res) {
+    const newpth = "views/assets" + pth 
+    res.sendFile(path.join(__dirname, newpth));
+  });
+*/
 exports.app = functions.https.onRequest(app);
