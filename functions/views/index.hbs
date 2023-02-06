@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <link href='styles/index.css' rel='stylesheet'>
-<script src="scripts/index.js"></script>
-
 <head>
 <style>
   * {
@@ -12,14 +10,14 @@
 body {
   font-family: Arial;
   padding: 10px;
-  background: #f1f1f1;
+  background: #FAFAFA;
 }
 
 /* Header/Blog Title */
 .header {
   padding: 30px;
   text-align: center;
-  background: white;
+  background: rgb(255, 255, 255);
 }
 
 .header h1 {
@@ -27,20 +25,20 @@ body {
 }
 
 .logo {
-    width: 150px;
+  width: 10%;
 }
 
 /* Style the top navigation bar */
 .topnav {
   overflow: hidden;
-  background-color: #333;
+  background-color: rgb(255, 255, 255);
 }
 
 /* Style the topnav links */
-.topnav a {
+.topnav a:not(.home) {
   float: left;
   display: block;
-  color: #f2f2f2;
+  color: #000000;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -96,6 +94,22 @@ body {
   margin-top: 20px;
 }
 
+#footer {
+    position: relative;
+    margin: 0 auto;
+    text-align: center;
+    font: 12px/18px D-DIN-Bold,Arial,Verdana,sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    text-transform: uppercase;
+    color: #000000;
+    padding: 20px 0;
+}
+
+#footer, .modal-transform, .youtube-wrapper {
+    background: rgb(220, 220, 220);
+}
+
 /* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 800px) {
   .leftcolumn, .rightcolumn {   
@@ -115,8 +129,7 @@ body {
 </head>
 <body>
 <div class="topnav">
-<div class="topnav">
-  <a href="/"><img class="logo" src="/assets/logo.png"></a>
+  <a class="home" href="/"><img class="logo" src="assets/logo.png"></a>
   <a href="/contact/" style="float:right">Contact</a>
   <a href="/careers/" style="float:right">Careers</a>
   <a href="/products/" style="float:right">Products</a>
@@ -125,6 +138,7 @@ body {
   <a href="/thestory/" style="float:right">The Story</a>
   <a href="/innovation/" style="float:right">Innovation</a>
 </div>
+<!-- Dialog box -->
 
 <div class="row">
   <div class="leftcolumn">
@@ -162,8 +176,17 @@ body {
   </div>
 </div>
 
-<div class="footer">
-  <h2>Footer</h2>
+<div id="footer">
+  <p>
+    <span>CiaranIndustries © 2024</span>
+    <a href="https://twitter.com/spacex" rel="noopener" target="_blank" class="social">TWITTER</a>
+    <a href="https://www.youtube.com/spacex" rel="noopener" target="_blank" class="social">YOUTUBE</a>
+    <a href="https://www.instagram.com/spacex/" rel="noopener" target="_blank" class="social">INSTAGRAM</a>
+    <a href="https://www.flickr.com/photos/spacex" rel="noopener" target="_blank" class="social">FLICKR</a>
+    <a href="https://www.linkedin.com/company/spacex" rel="noopener" target="_blank" class="social">LINKEDIN</a>
+    <a href="/media/privacy_policy_spacex.pdf" target="_blank" class="social">PRIVACY POLICY</a>
+    <a href="/supplier/" class="social">SUPPLIERS</a>
+  </p>
 </div>
 
 </body>
