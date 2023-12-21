@@ -13,14 +13,14 @@
     "consolidate": "^0.16.0",
     "express": "^4.18.2",
     "firebase-admin": "^11.4.1",
-    "firebase-functions": "^3.1.0",
+    "firebase-functions": "^3.24.1",
     "handlebars": "^4.7.7",
     "npm-build": "^0.0.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.17",
     "@babel/preset-env": "^7.12.17",
-    "babel-loader": "^8.2.2",
+    "babel-loader": "^7.1.5",
     "clean-webpack-plugin": "^3.0.0",
     "compression-webpack-plugin": "^7.1.2",
     "css-loader": "^5.0.2",

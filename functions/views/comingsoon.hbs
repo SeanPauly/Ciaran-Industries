@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <style>
+        /* Apply general styles to the page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #130040;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        /* Style the "Coming Soon" message */
+        .coming-soon {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .coming-soon h2 {
+            font-size: 36px;
+            color: #130040;
+        }
+
+        /* Style the countdown timer */
+        .countdown {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .countdown p {
+            font-size: 24px;
+        }
+
+        /* Style the footer */
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #130040;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Our Website is Coming Soon</h1>
+    </header>
+    <div class="coming-soon">
+        <h2>Stay tuned for our exciting new website!</h2>
+    </div>
+    <!-- Add the countdown timer container -->
+    <div class="countdown">
+        <p id="countdown-timer">Countdown Timer Goes Here</p>
+    </div>
+    <footer>
+        <p>&copy; 2023 Ciaran Industries. All rights reserved.</p>
+    </footer>
+</body>
+<script>
+    // Set the target date and time for the countdown (replace with your desired date and time)
+    const targetDate = new Date('2023-12-31T00:00:00').getTime();
+
+    // Update the countdown every 1 second
+    const timerInterval = setInterval(updateCountdown, 1000);
+
+    function updateCountdown() {
+        // Get the current date and time
+        const currentDate = new Date().getTime();
+
+        // Calculate the remaining time in milliseconds
+        const remainingTime = targetDate - currentDate;
+
+        // Check if the target date has passed
+        if (remainingTime <= 0) {
+            clearInterval(timerInterval);
+            document.getElementById('countdown-timer').textContent = 'Website is live!';
+        } else {
+            // Calculate days, hours, minutes, and seconds
+            const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+            // Update the countdown timer element
+            const countdownText = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            document.getElementById('countdown-timer').textContent = countdownText;
+        }
+    }
+</script>
+</html>

@@ -3,14 +3,24 @@ const express = require('express');
 const engines = require('consolidate');
 var hbs = require('handlebars');
 const admin = require('firebase-admin');
-
+/* const { studystar } = require('./subapps/studystar'); */
 const app = express();
 app.engine('hbs',engines.handlebars);
 app.set('views','./views');
 app.set('view engine','hbs');
 
 admin.initializeApp(functions.config().firebase);
-
+/*
+// Middleware to handle subdomains
+app.use((req, res, next) => {
+    const subdomain = req.subdomains[0]; // Extract the subdomain from the request
+  
+    if (subdomain === 'studystar') {
+      req.url = `/studystar${req.url}`; // Prepend '/studystar' to the URL
+    }
+  
+    next();
+  }); */
 
 async function getFirestore(){
 const firestore_con  = await admin.firestore();
@@ -26,43 +36,52 @@ var db_result = await getFirestore();
 response.render('index');
 });
 
-app.get('/innovation/',async (request,response) =>{
-    var db_result = await getFirestore();
-    response.render('innovation',{db_result});
+app.get('/about/',async (request,response) =>{
+  response.render('about');
 });
 
-app.get('/thestory/',async (request,response) =>{
-    var db_result = await getFirestore();
-    response.render('thestory',{db_result});
+app.get('/innovations/',async (request,response) =>{
+  response.render('comingsoon');
 });
 
-
-app.get('/projects/',async (request,response) =>{
-    var db_result = await getFirestore();
-    response.render('projects',{db_result});
+app.get('/innovations/ciaran',async (request,response) =>{
+  response.render('ciaran-info');
 });
 
-app.get('/services/',async (request,response) =>{
-    var db_result = await getFirestore();
-    response.render('services',{db_result});
+app.get('/ciaran-demo/',async (request,response) =>{
+  response.render('ciaran-demo');
 });
 
-app.get('/products/',async (request,response) =>{
-    var db_result = await getFirestore();
-    response.render('products',{db_result});
+app.get('/news/',async (request,response) =>{
+  response.render('comingsoon');
 });
 
+app.get('/shop/',async (request,response) =>{
+  response.render('comingsoon');
+});
 
-app.get('/careers/',async (request,response) =>{
-    var db_result = await getFirestore();
-    response.render('careers',{db_result});
+app.get('/timeline/',async (request,response) =>{
+  response.render('comingsoon');
+});
+
+app.get('/invest-supply/',async (request,response) =>{
+  response.render('comingsoon');
+});
+
+app.get('/career/',async (request,response) =>{
+  response.render('comingsoon');
 });
 
 app.get('/contact/',async (request,response) =>{
     var db_result = await getFirestore();
     response.render('contact',{db_result});
 });
+
+
 /*
+app.use('/studystar', studystar);
+
+
 for (const file of files) {
   const pth = '/' + file  
   app.get(pth, function(req, res) {

@@ -125,158 +125,40 @@ nav.top ul {
     display: block;
 }
 
-/* Adjust styles as needed */
-
-  
-/* Style the main section */
-section {
-    padding: 20px;
-}
-
-h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-}
-
-h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
+/* Style the main content section */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 100px);
 }
 
 p {
+    text-align: center;
     margin-bottom: 20px;
 }
 
-button {
+.demo-button {
+    display: inline-block;
     background-color: #130040;
     color: #fff;
     padding: 10px 20px;
     border: none;
-    cursor: pointer;
+    text-decoration: none;
     font-size: 16px;
+    transition: background-color 0.3s;
 }
 
-/* Style the "Learn More" button */
-button:hover {
-    background-color: #f37736; /* Hover color */
+.demo-button:hover {
+    background-color: #FFC000;
 }
 
 /* Style the footer */
 footer {
     text-align: center;
     padding: 10px;
-    background-color: #130040; /* Footer background color */
-    color: #fff; /* Footer text color */
-}
-
-/* Style the details element */
-details {
-    background-color: #ffd700; /* Details element background color */
-    padding: 10px;
-    margin: 0px;
-    border-radius: 0px;
-    text-align: center;
-    font-weight: bold;
-}
-
-/* Style the summary inside the details element */
-details summary {
-    cursor: pointer;
-}
-
-section.hero {
-    background: linear-gradient(to bottom, #130040, #ffffff);
-}
-
-/* Create a 2x2 grid layout */
-.grid-section {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Two equal-width columns */
-    grid-gap: 20px; /* Spacing between grid items */
-}
-
-/* Style the grid items */
-.grid-item {
-    padding: 20px;
-    background-color: #fff; /* Background color for each grid item */
-    border: 1px solid #ccc; /* Add borders for separation */
-}
-
-/* Style the buttons within the grid items */
-.grid-item button {
     background-color: #130040;
     color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-/* Style the "Learn More" button on hover */
-.grid-item button:hover {
-    background-color: #f37736; /* Hover color */
-}
-
-
-/* Style the articles */
-article {
-    margin-bottom: 40px;
-}
-
-/* Style the CEO's information */
-div h4 {
-    font-size: 18px;
-}
-
-div h5 {
-    font-size: 16px;
-    color: #888;
-}
-
-/* Create a 3x1 grid layout */
-.grid-section.news {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Two equal-width columns */
-    grid-gap: 20px; /* Spacing between grid items */
-}
-
-/* Style the circular image */
-.circular-image {
-    width: 150px; /* Set the desired width and height for the circular image */
-    height: 150px;
-    border-radius: 50%; /* Create a circular shape */
-    overflow: hidden; /* Hide any overflow content outside the circle */
-    border: 6px solid #f37736; /* Add a line border with the desired color */
-    margin: 20px auto; /* Center the circular image horizontally */
-}
-
-.circular-image img {
-    width: 100%; /* Ensure the image fills the circular container */
-    height: 100%;
-    object-fit: cover; /* Maintain aspect ratio and cover the circular container */
-}
-
-
-/* Style the news articles specifically */
-.grid-item.news h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.grid-item.news p {
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-/* Style the latest news section */
-section:nth-child(4) {
-    background-color: #130040;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-}
-
-/* Style the footer text */
-footer p {
     font-size: 14px;
 }
