@@ -10,17 +10,6 @@ app.set('views','./views');
 app.set('view engine','hbs');
 
 admin.initializeApp(functions.config().firebase);
-/*
-// Middleware to handle subdomains
-app.use((req, res, next) => {
-    const subdomain = req.subdomains[0]; // Extract the subdomain from the request
-  
-    if (subdomain === 'studystar') {
-      req.url = `/studystar${req.url}`; // Prepend '/studystar' to the URL
-    }
-  
-    next();
-  }); */
 
 async function getFirestore(){
 const firestore_con  = await admin.firestore();
@@ -31,14 +20,60 @@ else {return doc.data();}})
 return writeResult
 }
 
-app.get('/',async (request,response) =>{
-var db_result = await getFirestore();
-response.render('index');
+// Define a middleware function to check the subdomain
+function subdomain(req, res, next) {
+  const host = req.headers.host;
+  const parts = host.split('.');
+
+  // Check if the subdomain is 'ciaran'
+  if (parts.length >= 3 && parts[0] === 'ciaran') {
+      // For 'ciaran.ciaranindustries.com', handle 'ciaran' subdomain routes
+      req.subdomain = 'ciaran';
+      return next();
+  } else {
+      // For main domain or other subdomains, proceed with normal handling
+      return next();
+  }
+}
+
+app.use(subdomain);
+
+
+// Define routes for the 'ciaran' subdomain
+app.get('/', async (request, response) => {
+  // Handle requests for the main domain or other subdomains
+  if (request.subdomain === 'ciaran') {
+      // Serve routes specific to 'ciaran' subdomain
+      response.send('This is the ciaran web app');
+  } else {
+      // Serve routes for main domain or other subdomains
+      response.render('index');
+  }
 });
 
-app.get('/about/',async (request,response) =>{
-  response.render('about');
+// Define other routes specific to the 'ciaran' subdomain
+app.get('/about', async (request, response) => {
+  if (request.subdomain === 'ciaran') {
+      // Handle other routes for 'ciaran' subdomain
+      response.render('About page of ciaran.ciaranindustries.com');
+  } else {
+      // Handle routes for main domain or other subdomains
+      response.render('about');
+  }
 });
+
+
+app.get('/about/what-we-have-done.hbs/',async (request,response) =>{
+  response.render('what-we-have-done')
+})
+
+app.get('/about/what-we-believe.hbs/',async (request,response) =>{
+  response.render('what-we-believe')
+})
+
+app.get('/about/who-we-are.hbs/',async (request,response) =>{
+  response.render('who-we-are')
+})
 
 app.get('/innovations/',async (request,response) =>{
   response.render('comingsoon');
@@ -77,16 +112,4 @@ app.get('/contact/',async (request,response) =>{
     response.render('contact',{db_result});
 });
 
-
-/*
-app.use('/studystar', studystar);
-
-
-for (const file of files) {
-  const pth = '/' + file  
-  app.get(pth, function(req, res) {
-    const newpth = "views/assets" + pth 
-    res.sendFile(path.join(__dirname, newpth));
-  });
-*/
 exports.app = functions.https.onRequest(app);
